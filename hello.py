@@ -1,4 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 
+
+# ^ tells script what to execute with
+#
+# NOTE: All code below was taken from the Winter 2022 pre recorded lab (by Zoe Riell)
 
 import os
 import json

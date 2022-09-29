@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+
+# NOTE: All code below was taken from the Winter 2022 pre recorded lab (by Zoe Riell)
+
 import cgi
 import cgitb
-from typing import Set
 cgitb.enable()
 
 from templates import login_page, secret_page, after_login_incorrect
@@ -9,9 +11,9 @@ import secret
 import os
 from http.cookies import SimpleCookie
 
-Set = cgi.FieldStorage()
-username = Set.getfirst("username")
-password = Set.getfirst("password")
+form = cgi.FieldStorage()
+username = form.getfirst("username")
+password = form.getfirst("password")
 
 form_ok = username == secret.username and password == secret.password
 
@@ -33,8 +35,8 @@ if cookie_ok:
 print("Content-Type: text/html")
 
 if form_ok:
-    print(f"Set.Cookie: username ={username}")
-    print(f"Set.Cookie: password ={password}")
+    print(f"Set-Cookie: username ={username}")
+    print(f"Set-Cookie: password ={password}")
 
 print()
 
